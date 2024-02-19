@@ -13,6 +13,7 @@ class Hotel extends Model
         'nom',
         'adresse',
         'ville',
+        'pays',
         'telephone',
         'email',
     ];

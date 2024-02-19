@@ -25,6 +25,12 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
+    Route::get('/hotel', [HotelController::class, 'create'])->name('hotels.create');
+    Route::post('/hotel', [HotelController::class, 'store'])->name('hotels.store');
+    Route::get('/hotel/{id}/edit', [HotelController::class, 'edit'])->name('hotels.edit');
+    Route::put('/hotel/{id}/update', [HotelController::class, 'update'])->name('hotels.update');
+    Route::delete('/hotel', [HotelController::class, 'destroy'])->name('hotels.destroy');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

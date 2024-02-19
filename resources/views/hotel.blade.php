@@ -14,15 +14,17 @@
     </x-slot>
 
 <body>
-    <h1>Hôtels</h1>
+    <div class="flex flex-col items-center">
+    <h1 class="text-white font-bold font-xl mb-5">Liste des hôtels</h1>
 
-    <table class="text-white font-bold font-xl m-auto  border-collapse border border-sky-500">
+    <table class="text-white font-bold font-xl m-auto  border-collapse border border-sky-500 mb-5">
         <thead >
             <tr>
                 <th class="border border-sky-500 px-2">ID</th>
                 <th class="border border-sky-500 px-2">Nom</th>
                 <th class="border border-sky-500 px-2">Adresse</th>
                 <th class="border border-sky-500 px-2">Ville</th>
+                <th class="border border-sky-500 px-2">Pays</th>
                 <th class="border border-sky-500 px-2">Téléphone</th>
                 <th class="border border-sky-500 px-2">Email</th>
             </tr>
@@ -34,13 +36,27 @@
                     <td class="border border-sky-500 px-2">{{ $hotel->nom }}</td>
                     <td class="border border-sky-500 px-2">{{ $hotel->adresse }}</td>
                     <td class="border border-sky-500 px-2">{{ $hotel->ville }}</td>
+                    <td class="border border-sky-500 px-2">{{ $hotel->pays }}</td>
                     <td class="border border-sky-500 px-2">{{ $hotel->telephone }}</td>
                     <td class="border border-sky-500 px-2">{{ $hotel->email }}</td>
+                    <td class="border border-sky-500 px-2">
+                        <a href="{{ route('hotels.edit', $hotel->id) }}">Modifier</a>
+                        <hr>
+                        <form action="{{ route('hotels.destroy') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" value="{{ $hotel->id }}" name="id">
+                            <button type="submit">Supprimer</button>
+                        </form>
                 </tr>
             @endforeach
-        
         </tbody>
     </table>
+
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a href="{{ route('hotels.create') }}">Ajouter un hôtel</a>
+            </button>
+    </div>
 </body>
 </html>
 </x-app-layout>
