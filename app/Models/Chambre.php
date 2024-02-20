@@ -15,4 +15,9 @@ class Chambre extends Model
             "etage",
             "hotel_id"
     ];
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'hotel_id');
+    }
 }

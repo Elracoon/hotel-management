@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
-            $table->integer('prix');
+            $table->integer('prix')->nullable();
             $table->integer('capacite');
             $table->integer('etage');
-            $table->integer('hotel_id');
+            $table->unsignedBigInteger('hotel_id')->nullable();
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->timestamps();
         });
     }

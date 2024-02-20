@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Hotel;
 use App\Models\Chambre;
 
 class ChambreController extends Controller
@@ -15,7 +16,8 @@ class ChambreController extends Controller
 
     public function create()
     {
-        return view('chambres.create');
+        $hotels = Hotel::all();
+        return view('chambres.create', compact('hotels'));
     }
 
     public function store(Request $request)
