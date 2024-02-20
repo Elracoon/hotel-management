@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ChambreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/hotel/{id}/edit', [HotelController::class, 'edit'])->name('hotels.edit');
     Route::put('/hotel/{id}/update', [HotelController::class, 'update'])->name('hotels.update');
     Route::delete('/hotel', [HotelController::class, 'destroy'])->name('hotels.destroy');
+
+    Route::get('/chambres', [ChambreController::class, 'index'])->name('chambres.index');
+    Route::get('/chambre', [ChambreController::class, 'create'])->name('chambres.create');
+    Route::post('/chambre', [ChambreController::class, 'store'])->name('chambres.store');
+    Route::get('/chambre/{id}/edit', [ChambreController::class, 'edit'])->name('chambres.edit');
+    Route::put('/chambre/{id}/update', [ChambreController::class, 'update'])->name('chambres.update');
+    Route::delete('/chambre', [ChambreController::class, 'destroy'])->name('chambres.destroy');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

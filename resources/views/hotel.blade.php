@@ -40,20 +40,22 @@
                     <td class="border border-sky-500 px-2">{{ $hotel->telephone }}</td>
                     <td class="border border-sky-500 px-2">{{ $hotel->email }}</td>
                     <td class="border border-sky-500 px-2">
-                        <a href="{{ route('hotels.edit', $hotel->id) }}">Modifier</a>
-                        <hr>
+                        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold px-4 my-1 w-full rounded">
+                            <a href="{{ route('hotels.edit', $hotel->id) }}">Modifier</a>
+                        </button>
+                    
                         <form action="{{ route('hotels.destroy') }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" value="{{ $hotel->id }}" name="id">
-                            <button type="submit">Supprimer</button>
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 my-1  w-full rounded ">Supprimer</button>
                         </form>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-10 rounded">
                 <a href="{{ route('hotels.create') }}">Ajouter un hôtel</a>
             </button>
     </div>

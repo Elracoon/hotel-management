@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('hotels', function (Blueprint $table) {
-            //
+        Schema::create('chambres', function (Blueprint $table) {
+            $table->id();
+            $table->integer('prix');
+            $table->integer('capacite');
+            $table->integer('etage');
+            $table->integer('hotel_id');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('hotels', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };
