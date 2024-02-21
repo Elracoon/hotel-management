@@ -16,7 +16,7 @@ class ChambreController extends Controller
 
     public function create()
     {
-        $hotels = Hotel::all();
+        Hotel::all();
         return view('chambres.create', compact('hotels'));
     }
 

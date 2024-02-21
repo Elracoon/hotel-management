@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Réservation</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-white font-bold font-xl">
-            {{ __('Réservation') }}
-        </h2>
-    </x-slot>
-
-<body>
+<body class="bg-gray-800"
 <div class="flex flex-col items-center">
     <h1 class="text-white font-bold font-xl mb-5">Création d'une réservation</h1>
 
@@ -81,4 +75,3 @@
 
 </body>
 </html>
-</x-app-layout>
