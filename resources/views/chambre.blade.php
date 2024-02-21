@@ -12,6 +12,9 @@
         </h2>
     </x-slot>
 <body>
+
+
+
 <div class="flex flex-col items-center">
     <h1 class="text-white font-bold font-xl mb-5">Liste des chambres</h1>
 
@@ -29,9 +32,9 @@
         @foreach ($chambres as $chambre)
                 <tr>
                     <td class="border border-sky-500 px-2">{{ $chambre->id }}</td>
-                    <td class="border border-sky-500 px-2">{{ $chambre->prix }}</td>
-                    <td class="border border-sky-500 px-2">{{ $chambre->capacite }}</td>
-                    <td class="border border-sky-500 px-2">{{ $chambre->etage }}</td>
+                    <td class="border border-sky-500 px-2">{{ $chambre->prix }} €</td>
+                    <td class="border border-sky-500 px-2">{{ $chambre->capacite }} personnes</td>
+                    <td class="border border-sky-500 px-2">{{ $chambre->etage }}ème</td>
                     <td class="border border-sky-500 px-2">{{ $chambre->hotel_id }}</td>
                     <td class="border border-sky-500 px-2">
                         <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold px-4 my-1 w-full rounded">
@@ -53,6 +56,7 @@
                 <a href="{{ route('chambres.create') }}">Ajouter une chambre</a>
             </button>
     </div>
+
 </body>
 </html>
 </x-app-layout>

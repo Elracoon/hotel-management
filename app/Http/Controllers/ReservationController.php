@@ -12,7 +12,8 @@ class ReservationController extends Controller
     public function index()
     {
         $chambres = Chambre::all();
-        return view("reservation", ["chambres"=>$chambres]);
+        $reservations = Reservation::all();
+        return view("reservation", compact("reservations"),["chambres"=>$chambres]);
     }
 
     public function create($id)
