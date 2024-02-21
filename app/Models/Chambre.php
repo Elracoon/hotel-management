@@ -13,11 +13,17 @@ class Chambre extends Model
             "prix",
             "capacite",
             "etage",
+            "is_reserved",
             "hotel_id"
     ];
 
     public function hotel()
     {
         return $this->belongsTo(Hotel::class, 'hotel_id');
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
     }
 }

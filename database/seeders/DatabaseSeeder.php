@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Hotel::factory(100)->create();
+
+        \App\Models\Chambre::factory(100)->create();
     }
 
 

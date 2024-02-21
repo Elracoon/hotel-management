@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('prix')->nullable();
             $table->integer('capacite');
             $table->integer('etage');
+            $table->boolean('is_reserved')->default(false);
             $table->unsignedBigInteger('hotel_id')->nullable();
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->timestamps();
